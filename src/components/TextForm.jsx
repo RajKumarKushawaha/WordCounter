@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
 function TextForm(props) {
-
     const [text, setText] = useState("");
 
     const handleUpClick = () => {
@@ -10,6 +9,12 @@ function TextForm(props) {
 
     const handleLowClick = () => {
         setText(text.toLowerCase());
+    }
+
+    const handleCopy = ()=>{
+        let text = document.getElementById("myBox");
+        text.select();
+        navigator.clipboard.writeText(text.value);
     }
 
     const handleClear = () => {
@@ -32,6 +37,8 @@ function TextForm(props) {
                 <button type="button" onClick={handleUpClick} className="btn btn-info">Convert to UpperCase</button>
                 <button type="button" onClick={handleLowClick} className="btn btn-info mx-3" >Convert to LowerCase</button>
                 <button type="button" onClick={handleClear} className="btn btn-info">ClearText</button>
+                <button type="button" onClick={handleCopy} className="btn btn-info mx-3">Copy Text</button>
+
             </div>
 
             <div className="container my-4 p-4 bg-light rounded shadow-sm">
