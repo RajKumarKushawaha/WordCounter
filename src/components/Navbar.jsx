@@ -1,27 +1,30 @@
+import { Link } from 'react-router-dom'
 
 function Navbar(props) {
     return (
         <div>
-            <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode ==='grey'?'black':'light'} `}>
+            <nav
+                className={`navbar navbar-expand-lg navbar-${props.mode}`}
+                style={{ backgroundColor: props.mode === 'grey' ? 'black' : '#e2e2e2ff' }}>
                 <div className="container-fluid">
-                    <a className={`navbar-brand href=# text-${props.mode ==='light'?'black':'light'}`}><b>WordCounter</b></a>
+                    <Link className={`navbar-brand  text-${props.mode === 'light' ? 'black' : 'light'}`}><b>WordCounter</b></Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <a className={`nav-link  text-${props.mode ==='light'?'black':'light'}`}>Home</a>
+                                <Link to="/" className={`nav-link  text-${props.mode === 'light' ? 'black' : 'light'}`}>Home</Link>
                             </li>
                             <li className="nav-item">
-                                <a className={`nav-link text-${props.mode ==='light'?'black':'light'}`}  aria-current="page" href="#">About</a>
+                                <Link className={`nav-link text-${props.mode === 'light' ? 'black' : 'light'}`} aria-current="page" to="/about">About</Link>
                             </li>
                         </ul>
                         {/* <form className="d-flex" role="search">
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                             <button className="btn btn-outline-success" type="submit">Search</button>
                         </form> */}
-                        <div className={`form-check form-switch text-${props.mode ==='light'?'black':'light'}`}>
+                        <div className={`form-check form-switch text-${props.mode === 'light' ? 'black' : 'light'}`}>
                             <input className="form-check-input" type="checkbox" onClick={props.toggleMode} role="switch" id="switchCheckDefault" />
                             <label className="form-check-label" htmlFor="switchCheckDefault">Enable DarkMode</label>
                         </div>
