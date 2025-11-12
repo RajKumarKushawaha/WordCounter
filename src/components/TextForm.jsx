@@ -44,12 +44,12 @@ function TextForm(props) {
             <div className={`container my-4 p-4  rounded shadow-sm"bg-${{backgroundColor:props.mode==='dark'?'grey':'white'}}`}>
                 <h2 className="text-primary mb-3">Your Text Summary</h2>
                 <p className="fs-5"style={{color:props.mode==='grey'?'white':'black'}} >
-                    <b>{text.split(" ").length}</b> Words and <b>{text.length}</b> Characters
+                    <b>{text.split(/\s+/).filter((element)=>{ return element.length !== 0}).length}</b> Words and <b>{text.length}</b> Characters
                 </p>
 
                 <p style={{color:props.mode==='grey'?'white':'black'}}>
                     🕒 Estimated Reading Time:{" "}
-                    <b>{0.008 * text.split(" ").length} Minutes</b>
+                    <b>{0.008 * text.split(" ").filter((element)=>{return element.length !==0}).length} Minutes</b>
                 </p>
 
                 <div className="border-top pt-3">
